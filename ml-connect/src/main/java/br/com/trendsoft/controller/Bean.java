@@ -3,6 +3,7 @@ package br.com.trendsoft.controller;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.mercadolibre.sdk.AuthorizationFailure;
 import com.mercadolibre.sdk.Meli;
 import com.mercadolibre.sdk.MeliException;
@@ -55,7 +60,21 @@ public class Bean implements Serializable {
 					params.add("access_token", m.getAccessToken());
 					params.add("seller", "146216892");
 					Response r = m.get("/orders/search/recent",params);
-					String resp = r.getResponseBody();
+					JsonParser parser = new JsonParser();
+					JsonElement element =  parser.parse(r.getResponseBody());
+					JsonObject jsonObject = element.getAsJsonObject();
+					JsonArray vendas = (JsonArray) jsonObject.get("results");
+					Iterator<JsonElement> iterator = vendas.iterator();
+					while (iterator.hasNext()){
+						JsonObject venda =  iterator.next().getAsJsonObject();
+						System.out.println(venda.get("id"));
+					}
+				 
+				
+					System.out.println(r.getResponseBody());
+					
+		
+
 
 					System.out.println();
 
