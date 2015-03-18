@@ -59,7 +59,8 @@ public class Bean implements Serializable {
 					FluentStringsMap params = new FluentStringsMap();
 					params.add("access_token", m.getAccessToken());
 					params.add("seller", "146216892");
-					Response r = m.get("/orders/search/recent",params);
+					Response r = m.get("/orders/search",params);
+					
 					JsonParser parser = new JsonParser();
 					JsonElement element =  parser.parse(r.getResponseBody());
 					JsonObject jsonObject = element.getAsJsonObject();
@@ -68,6 +69,7 @@ public class Bean implements Serializable {
 					while (iterator.hasNext()){
 						JsonObject venda =  iterator.next().getAsJsonObject();
 						System.out.println(venda.get("id"));
+						
 					}
 				 
 				
