@@ -3,7 +3,7 @@ package br.com.trendsoft.controller;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -12,7 +12,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import com.google.gson.JsonArray;
+import br.com.trendsoft.model.Vendas;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -51,14 +52,19 @@ public class Bean implements Serializable {
 
 		try{
 			if (code != null) {
+				
 				try {
 					m.authorize(code, "http://localhost:8080/ml-connect");
-					token = m.getAccessToken();
-					refrashToken = m.getRefreshToken();
 
+//					1º - Vendas IDs
+					
+//					Pega os últimos 50 IDs e insere na base os novos IDs (Tabela: orders_id).
+					/*
 					FluentStringsMap params = new FluentStringsMap();
 					params.add("access_token", m.getAccessToken());
 					params.add("seller", "146216892");
+					params.add("sort", "date_desc");
+					
 					Response r = m.get("/orders/search",params);
 					
 					JsonParser parser = new JsonParser();
@@ -66,14 +72,75 @@ public class Bean implements Serializable {
 					JsonObject jsonObject = element.getAsJsonObject();
 					JsonArray vendas = (JsonArray) jsonObject.get("results");
 					Iterator<JsonElement> iterator = vendas.iterator();
+
+					ArrayList<String> lstVendasId = new ArrayList<String>();
 					while (iterator.hasNext()){
 						JsonObject venda =  iterator.next().getAsJsonObject();
-						System.out.println(venda.get("id"));
-						
+						lstVendasId.add(venda.get("id").toString());
+						//System.out.println(venda.get("id"));
 					}
-				 
+					
+					Vendas objVendas = new Vendas();
+					objVendas.setLstVendasId(lstVendasId);  */
 				
-					System.out.println(r.getResponseBody());
+//					2º - Seleciona na Base as ordens de venda a serem inseridas ou atualizadas:
+						
+//					SELECT oi.id
+//				    FROM orders_id oi
+//				        LEFT JOIN orders o ON (oi.id = o.id)
+//				        LEFT JOIN shipping s ON (o.shipping_id = s.id)
+//				    WHERE o.id is null
+//				           OR (
+//								(o.status = 'paid')
+//								AND ( 
+//									s.id is null OR (s.status <> 'delivered')
+//								)
+//							)
+//							OR (o.status <> 'paid')
+
+//					Carrega as tabelas: 
+//					- order
+//					- buyer
+//					- payment
+//					- order_items
+				
+//					ID de exemplo!!!  
+//					futuramente deverá varrer o resultado do select acima e executar o código abaixo para cada ID.
+					String id = "936495018";
+					
+					FluentStringsMap params = new FluentStringsMap();
+					params.add("access_token", m.getAccessToken());
+					params.add("seller", "146216892");
+					Response r = m.get("/orders/" + id, params);
+					
+					JsonParser parser = new JsonParser();
+					JsonElement element =  parser.parse(r.getResponseBody());
+					JsonObject jsonObject = element.getAsJsonObject();
+					
+					Vendas objVendas = new Vendas();
+					
+					objVendas.setId(jsonObject.get("id").getAsLong());
+					objVendas.setStatus(jsonObject.get("status").toString());
+					objVendas.setDate_created(jsonObject.get("date_created").toString());
+					objVendas.setDate_closed(jsonObject.get("date_closed").toString());
+					objVendas.setLast_updated(jsonObject.get("last_updated").toString());
+					objVendas.setTotal_amount(jsonObject.get("total_amount").getAsDouble());
+					objVendas.setShipping_id(jsonObject.getAsJsonObject("shipping"));
+					objVendas.setBuyer_id(jsonObject.getAsJsonObject("buyer"));
+					
+					System.out.println(objVendas);
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					System.out.println(objVendas.getLstVendasId());
 					
 		
 
