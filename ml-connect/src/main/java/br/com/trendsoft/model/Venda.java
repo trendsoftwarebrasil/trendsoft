@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 import com.google.gson.JsonObject;
 
-public class Vendas {
+public class Venda {
 
-	
 	private Long id;
 	private String status;
 	private String date_created;
@@ -88,7 +87,6 @@ public class Vendas {
 	public void setLstVendasId(ArrayList<String> lstVendasId) {
 		this.lstVendasId = lstVendasId;
 	}
-
-
+	
 	
 }

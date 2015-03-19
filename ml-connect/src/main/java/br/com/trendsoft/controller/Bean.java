@@ -3,7 +3,6 @@ package br.com.trendsoft.controller;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -12,7 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import br.com.trendsoft.model.Vendas;
+import br.com.trendsoft.model.Venda;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -80,7 +79,7 @@ public class Bean implements Serializable {
 						//System.out.println(venda.get("id"));
 					}
 					
-					Vendas objVendas = new Vendas();
+					Venda objVenda = new Venda();
 					objVendas.setLstVendasId(lstVendasId);  */
 				
 //					2º - Seleciona na Base as ordens de venda a serem inseridas ou atualizadas:
@@ -117,7 +116,7 @@ public class Bean implements Serializable {
 					JsonElement element =  parser.parse(r.getResponseBody());
 					JsonObject jsonObject = element.getAsJsonObject();
 					
-					Vendas objVendas = new Vendas();
+					Venda objVendas = new Venda();
 					
 					objVendas.setId(jsonObject.get("id").getAsLong());
 					objVendas.setStatus(jsonObject.get("status").toString());
