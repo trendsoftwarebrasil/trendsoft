@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 
 import br.com.trendsoft.model.Cliente;
 import br.com.trendsoft.model.Pagamento;
+import br.com.trendsoft.model.Transporte;
 import br.com.trendsoft.model.Venda;
 import br.com.trendsoft.model.VendaItens;
 
@@ -204,7 +205,52 @@ public class Bean implements Serializable {
 					}
 					
 					objVenda.setPagamento(lstPagamentos);					
+
+//					Carga da tabela Shipping - importando dados do Mercado Livre.
+//					ID de exemplo!!!  
+//					futuramente deverá varrer o resultado do select acima e executar o código abaixo para cada ID.
+					String idShip = "21404711983";
 					
+					FluentStringsMap params2 = new FluentStringsMap();
+					params2.add("access_token", m.getAccessToken());
+					params2.add("seller", "146216892");
+					Response r2 = m.get("/shipments/" + idShip, params2);
+					
+//					Dados para a tabela Shippment
+					JsonParser parser2 = new JsonParser();
+					JsonElement element2 =  parser2.parse(r2.getResponseBody());
+					JsonObject joShip = element2.getAsJsonObject();
+					
+					Transporte objTransporte = new Transporte();
+					
+					objTransporte.setId(joShip.get("id").getAsLong());
+					objTransporte.setStatus(joShip.get("status").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_ready_to_ship").isJsonNull())
+						objTransporte.setDate_ready_to_ship(joShip.getAsJsonObject("status_history").get("date_ready_to_ship").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_shipped").isJsonNull())
+						objTransporte.setDate_shipped(joShip.getAsJsonObject("status_history").get("date_shipped").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_delivered").isJsonNull())
+						objTransporte.setDate_delivered(joShip.getAsJsonObject("status_history").get("date_delivered").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_not_delivered").isJsonNull())
+						objTransporte.setDate_not_delivered(joShip.getAsJsonObject("status_history").get("date_not_delivered").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_returned").isJsonNull())
+						objTransporte.setDate_returned(joShip.getAsJsonObject("status_history").get("date_returned").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_cancelled").isJsonNull())
+						objTransporte.setDate_cancelled(joShip.getAsJsonObject("status_history").get("date_cancelled").getAsString());
+					if(!joShip.getAsJsonObject("status_history").get("date_first_visit").isJsonNull())
+						objTransporte.setDate_first_visit(joShip.getAsJsonObject("status_history").get("date_first_visit").getAsString());
+					if(!joShip.get("tracking_number").isJsonNull())
+						objTransporte.setTracking_number(joShip.get("tracking_number").getAsString());
+					if(!joShip.get("tracking_method").isJsonNull())
+						objTransporte.setTracking_method(joShip.get("tracking_method").getAsString());
+					if(!joShip.getAsJsonObject("receiver_address").get("latitude").isJsonNull())
+						objTransporte.setLatitude(joShip.getAsJsonObject("receiver_address").get("latitude").getAsDouble());
+					if(!joShip.getAsJsonObject("receiver_address").get("longitude").isJsonNull())
+						objTransporte.setLongitude(joShip.getAsJsonObject("receiver_address").get("longitude").getAsDouble());
+					if(!joShip.getAsJsonObject("shipping_option").get("list_cost").isJsonNull())
+						objTransporte.setList_cost(joShip.getAsJsonObject("shipping_option").get("list_cost").getAsDouble());
+					if(!joShip.getAsJsonObject("shipping_option").getAsJsonObject("estimated_delivery").isJsonNull())
+						objTransporte.setEstimated_delivery(joShip.getAsJsonObject("shipping_option").getAsJsonObject("estimated_delivery").get("date").getAsString());
 					
 					
 					
