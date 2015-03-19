@@ -3,6 +3,7 @@ package br.com.trendsoft.controller;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -11,8 +12,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.trendsoft.model.Cliente;
+import br.com.trendsoft.model.Pagamento;
 import br.com.trendsoft.model.Venda;
+import br.com.trendsoft.model.VendaItens;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -112,40 +117,97 @@ public class Bean implements Serializable {
 					params.add("seller", "146216892");
 					Response r = m.get("/orders/" + id, params);
 					
+//					Dados para a tabela Order
 					JsonParser parser = new JsonParser();
 					JsonElement element =  parser.parse(r.getResponseBody());
-					JsonObject jsonObject = element.getAsJsonObject();
+					JsonObject joOrder = element.getAsJsonObject();
 					
-					Venda objVendas = new Venda();
+					Venda objVenda = new Venda();
 					
-					objVendas.setId(jsonObject.get("id").getAsLong());
-					objVendas.setStatus(jsonObject.get("status").toString());
-					objVendas.setDate_created(jsonObject.get("date_created").toString());
-					objVendas.setDate_closed(jsonObject.get("date_closed").toString());
-					objVendas.setLast_updated(jsonObject.get("last_updated").toString());
-					objVendas.setTotal_amount(jsonObject.get("total_amount").getAsDouble());
-					objVendas.setShipping_id(jsonObject.getAsJsonObject("shipping"));
-					objVendas.setBuyer_id(jsonObject.getAsJsonObject("buyer"));
+					objVenda.setId(joOrder.get("id").getAsLong());
+					objVenda.setStatus(joOrder.get("status").toString());
+					objVenda.setDate_created(joOrder.get("date_created").toString());
+					objVenda.setDate_closed(joOrder.get("date_closed").toString());
+					objVenda.setLast_updated(joOrder.get("last_updated").toString());
+					objVenda.setTotal_amount(joOrder.get("total_amount").getAsDouble());
+					objVenda.setShipping_id(joOrder.getAsJsonObject("shipping").get("id").getAsLong());
+					objVenda.setBuyer_id(joOrder.getAsJsonObject("buyer").get("id").getAsLong());
 					
-					System.out.println(objVendas);
+//					Dados para a tabela Buyer
+					JsonObject joBuyer = joOrder.getAsJsonObject("buyer");
+					Cliente objCliente = new Cliente();
 					
+					objCliente.setId(joBuyer.get("id").getAsLong());
+					objCliente.setNickname(joBuyer.get("nickname").getAsString());
+					objCliente.setEmail(joBuyer.get("email").getAsString());
+					objCliente.setArea_code(joBuyer.getAsJsonObject("phone").get("area_code").getAsString());
+					objCliente.setNumber(joBuyer.getAsJsonObject("phone").get("number").getAsString());
+					if(!joBuyer.getAsJsonObject("phone").get("extension").isJsonNull())
+						objCliente.setExtension(joBuyer.getAsJsonObject("phone").get("extension").getAsString());
+					objCliente.setFirst_name(joBuyer.get("first_name").getAsString());
+					objCliente.setLast_name(joBuyer.get("last_name").getAsString());
+					objCliente.setDoc_type(joBuyer.getAsJsonObject("billing_info").get("doc_type").getAsString());
+					objCliente.setDoc_number(joBuyer.getAsJsonObject("billing_info").get("doc_number").getAsString());
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					System.out.println(objVendas.getLstVendasId());
-					
-		
+//					Dados para a tabela Payment
+					JsonArray pagamentos = (JsonArray) joOrder.get("payments");
+					Iterator<JsonElement> iteratorPaym = pagamentos.iterator();
 
+					ArrayList<Pagamento> lstPagamentos = new ArrayList<Pagamento>();
+					Pagamento objPagamento;
+					
+					while (iteratorPaym.hasNext()) {
+						objPagamento = new Pagamento();
+						
+						JsonObject pagamento =  iteratorPaym.next().getAsJsonObject();
+						
+						objPagamento.setId(pagamento.get("id").getAsLong());
+						objPagamento.setOrder_id(pagamento.get("order_id").getAsLong());
+						objPagamento.setPayment_method_id(pagamento.get("payment_method_id").getAsString());
+						objPagamento.setCurrency_id(pagamento.get("currency_id").getAsString());
+						objPagamento.setInstallments(pagamento.get("installments").getAsInt());
+						objPagamento.setPayment_type(pagamento.get("payment_type").getAsString());
+						objPagamento.setStatus(pagamento.get("status").getAsString());
+						objPagamento.setStatus_code(pagamento.get("status_code").getAsString());
+						objPagamento.setStatus_detail(pagamento.get("status_detail").getAsString());
+						objPagamento.setTransaction_amount(pagamento.get("transaction_amount").getAsDouble());
+						objPagamento.setTotal_paid_amount(pagamento.get("total_paid_amount").getAsDouble());
+						objPagamento.setDate_created(pagamento.get("date_created").getAsString());
+						objPagamento.setDate_last_modified(pagamento.get("date_last_modified").getAsString());
+						
+						lstPagamentos.add(objPagamento);
+						//System.out.println(pagamento.get("id"));
+					}
+					
+					objVenda.setPagamento(lstPagamentos);
+					
+//					Dados para a tabela order_items
+					JsonArray vendaItens = (JsonArray) joOrder.get("order_items");
+					Iterator<JsonElement> iteratorItens = vendaItens.iterator();
 
-					System.out.println();
-
+					ArrayList<VendaItens> lstVendaItens = new ArrayList<VendaItens>();
+					VendaItens objVendaItens = new VendaItens();
+					
+					while (iteratorItens.hasNext()) {
+						objVendaItens = new VendaItens();
+						
+						JsonObject item =  iteratorItens.next().getAsJsonObject();
+						
+						objVendaItens.setOrders_id(objVenda.getId());
+						objVendaItens.setProduct_id(item.getAsJsonObject("item").get("id").getAsString());
+						objVendaItens.setQuantity(item.get("quantity").getAsInt());
+						objVendaItens.setUnit_price(item.get("unit_price").getAsDouble());
+						objVendaItens.setCurrency_id(item.get("currency_id").getAsString());
+						
+						lstVendaItens.add(objVendaItens);
+						//System.out.println(pagamento.get("id"));
+					}
+					
+					objVenda.setPagamento(lstPagamentos);					
+					
+					
+					
+					
 				} catch (AuthorizationFailure e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

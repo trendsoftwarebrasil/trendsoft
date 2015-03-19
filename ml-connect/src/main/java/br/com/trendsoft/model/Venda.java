@@ -1,6 +1,7 @@
 package br.com.trendsoft.model;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import com.google.gson.JsonObject;
 
@@ -12,9 +13,12 @@ public class Venda {
 	private String date_closed;
 	private String last_updated;
 	private double total_amount;
-	private JsonObject shipping_id;
-	private JsonObject buyer_id;
+	private Long shipping_id;
+	private Long buyer_id;
 	private ArrayList<String> lstVendasId;
+	
+	private ArrayList<Pagamento> pagamento;
+	private ArrayList<VendaItens> vendaItens;
 	
 	public Long getId() {
 		return id;
@@ -64,19 +68,19 @@ public class Venda {
 		this.total_amount = total_amount;
 	}
 
-	public JsonObject getShipping_id() {
+	public Long getShipping_id() {
 		return shipping_id;
 	}
 
-	public void setShipping_id(JsonObject shipping_id) {
+	public void setShipping_id(Long shipping_id) {
 		this.shipping_id = shipping_id;
 	}
 
-	public JsonObject getBuyer_id() {
+	public Long getBuyer_id() {
 		return buyer_id;
 	}
 
-	public void setBuyer_id(JsonObject buyer_id) {
+	public void setBuyer_id(Long buyer_id) {
 		this.buyer_id = buyer_id;
 	}
 
@@ -86,6 +90,22 @@ public class Venda {
 
 	public void setLstVendasId(ArrayList<String> lstVendasId) {
 		this.lstVendasId = lstVendasId;
+	}
+
+	public ArrayList<Pagamento> getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(ArrayList<Pagamento> pagamento) {
+		this.pagamento = pagamento;
+	}
+
+	public ArrayList<VendaItens> getVendaItens() {
+		return vendaItens;
+	}
+
+	public void setVendaItens(ArrayList<VendaItens> vendaItens) {
+		this.vendaItens = vendaItens;
 	}
 	
 	
