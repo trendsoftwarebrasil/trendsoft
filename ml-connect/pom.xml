@@ -24,6 +24,11 @@
 			<url>https://github.com/mercadolibre/java-sdk-repo/raw/master/snapshots</url>
 		</repository>
 
+		<repository>
+			<id>mercadopago</id>
+			<url>https://github.com/mercadopago/sdk-java/raw/master/releases</url>
+		</repository>
+
 	</repositories>
 
 
@@ -76,6 +81,12 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mercadopago</groupId>
+			<artifactId>sdk</artifactId>
+			<version>0.3.4</version>
 		</dependency>
 
 	</dependencies>
