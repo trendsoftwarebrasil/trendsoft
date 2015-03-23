@@ -36,7 +36,7 @@ public class Bean implements Serializable {
 	 */
 	private static final long serialVersionUID = 4497743154677441756L;
 
-	private String word;
+	private String word = "helo world";
 
 	private String anagram;
 
@@ -338,12 +338,13 @@ public class Bean implements Serializable {
 					e.printStackTrace();
 				}
 
-			} else
-				FacesContext
-						.getCurrentInstance()
-						.getExternalContext()
-						.redirect(
-								m.getAuthUrl("http://localhost:8080/ml-connect"));
+			} 
+//			else 
+//				FacesContext
+//						.getCurrentInstance()
+//						.getExternalContext()
+//						.redirect(
+//								m.getAuthUrl("http://localhost:8080/ml-connect"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
