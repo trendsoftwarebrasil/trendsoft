@@ -1,9 +1,6 @@
 package br.com.trendsoft.model;
 
 import java.util.ArrayList;
-import java.util.Set;
-
-import com.google.gson.JsonObject;
 
 public class Venda {
 
