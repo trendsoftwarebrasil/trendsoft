@@ -14,11 +14,23 @@
 
 	<ui:define name="about">
 		<ui:include src="/paginas/about.xhtml" />
-		
 	</ui:define>
+
+	<ui:define name="content">
+		<h:panelGroup id="include">
+			<ui:include src="/ajax/#{bean.content}.xhtml" />
+		</h:panelGroup>
+	</ui:define>
+
+
+
 	<ui:define name="title">        
-            TRENDSoft 
+            TRENDSoft
     </ui:define>
+
+
+
+
 </ui:composition>
 </html>
 

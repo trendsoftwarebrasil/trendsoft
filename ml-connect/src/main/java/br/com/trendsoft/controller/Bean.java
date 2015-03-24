@@ -37,7 +37,7 @@ public class Bean implements Serializable {
 	private static final long serialVersionUID = 4497743154677441756L;
 
 	private String word = "helo world";
-
+	private String content;
 	private String anagram;
 
 	String code = null;
@@ -46,6 +46,8 @@ public class Bean implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		
+		this.content = "dashboard";
 
 		// Meli.apiUrl = "https://api.mercadolibre.com";
 
@@ -380,5 +382,13 @@ public class Bean implements Serializable {
 
 	public void setWord(String word) {
 		this.word = word;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 }
