@@ -27,14 +27,6 @@ public class MenuController implements Serializable{
 		
 	}
 	
-	
-	public String redireciona(){
-		
-		return PATH_CONTEUDO + "view2.xhtml";
-		
-		
-	}
-
 
 	public String getContent() {
 		return content;
