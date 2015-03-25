@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.annotation.PostConstruct;
@@ -391,4 +392,16 @@ public class Bean implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	
+	public void teste(){
+		
+		Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+				
+		 
+		String content = params.get("content");
+		this.setContent(content);
+		
+	}
+	
 }
