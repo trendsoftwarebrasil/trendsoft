@@ -14,9 +14,9 @@
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.99.4.157:3306/mlconnect_db" />
-		<property name="username" value="trendsoft" />
-		<property name="password" value="FPhone@2013soci" />
+		<property name="url" value="jdbc:mysql://localhost:3306/world" />
+		<property name="username" value="root" />
+		<property name="password" value="wcm@1234" />
 	</bean>
 
 	<bean id="entityManagerFactory"
