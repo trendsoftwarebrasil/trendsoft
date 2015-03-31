@@ -38,7 +38,6 @@ public class Bean implements Serializable {
 	private static final long serialVersionUID = 4497743154677441756L;
 
 	private String word = "helo world";
-	private String content;
 	private String anagram;
 
 	String code = null;
@@ -48,8 +47,6 @@ public class Bean implements Serializable {
 	@PostConstruct
 	public void init() {
 		
-		this.content = "dashboard";
-
 		// Meli.apiUrl = "https://api.mercadolibre.com";
 
 		Meli m = new Meli(4013368235398167L, "fcn1Xo99nYX3vHf7q4MRFA7K6Q7HeCm5");
@@ -385,22 +382,10 @@ public class Bean implements Serializable {
 		this.word = word;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
 	
 	public void teste(){
 		
 		Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-				
-		 
-		String content = params.get("content");
-		this.setContent(content);
 		
 	}
 	

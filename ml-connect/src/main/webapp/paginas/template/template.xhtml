@@ -63,159 +63,167 @@
 						<ul class="nav main-menu">
 							<li><h:commandLink styleClass="active ajax-link"
 									actionListener="#{menuController.atualizaConteudo}">
-									<i class='fa fa-dashboard'></i> Dashboard 1
-									<f:param name="content" value="dashboard"/>
+									<i class='fa fa-dashboard'></i> Dashboard
+									<f:param name="content" value="dashboard" />
 								</h:commandLink></li>
-							<li><h:commandLink styleClass="ajax-link"
-									actionListener="#{menuController.atualizaConteudo}">
-									<i class='fa fa-dashboard'></i> Dashboard 2
-									<f:param name="content" value="dashboard2"/>
-								</h:commandLink></li>
+
 							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-bar-chart-o"></i> <span class="hidden-xs">Charts</span>
+									<i class="fa fa-bar-chart-o"></i> <span class="hidden-xs">Vendas</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/charts_xcharts.html">xCharts</a></li>
-									<li><a class="ajax-link" href="ajax/charts_flot.html">Flot
-											Charts</a></li>
-									<li><a class="ajax-link" href="ajax/charts_google.html">Google
-											Charts</a></li>
-									<li><a class="ajax-link" href="ajax/charts_morris.html">Morris
-											Charts</a></li>
-									<li><a class="ajax-link" href="ajax/charts_amcharts.html">AmCharts</a></li>
-									<li><a class="ajax-link" href="ajax/charts_chartist.html">Chartist</a></li>
-									<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk
-											realtime</a></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Pedidos<f:param name="content" value="vendas-pedidos" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Faturas<f:param name="content" value="vendas-faturas" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Entregas<f:param name="content" value="vendas-entregas" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Reembolsos<f:param name="content" value="vendas-reembolsos" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Clientes<f:param name="content" value="clientes" />
+										</h:commandLink></li>
 								</ul></li>
+
 							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-table"></i> <span class="hidden-xs">Tables</span>
+									<i class="fa fa-shopping-cart"></i> <span class="hidden-xs">Compras</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/tables_simple.html">Simple
-											Tables</a></li>
-									<li><a class="ajax-link"
-										href="ajax/tables_datatables.html">Data Tables</a></li>
-									<li><a class="ajax-link" href="ajax/tables_beauty.html">Beauty
-											Tables</a></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Solicitação de Cotação<f:param name="content"
+												value="compras-cotacao" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Ordem de Compra<f:param name="content" value="compras-ordem" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Fornecedor<f:param name="content" value="fornecedor" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Estoque<f:param name="content" value="estoque" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Entrada de Produtos<f:param name="content"
+												value="compras-entrada" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Produtos<f:param name="content" value="produtos" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Entrada de Produtos<f:param name="content"
+												value="compras-entrada" />
+										</h:commandLink></li>
 								</ul></li>
+
 							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">Forms</span>
+									<i class="fa fa-usd"></i> <span class="hidden-xs">Financeiro</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/forms_elements.html">Elements</a></li>
-									<li><a class="ajax-link" href="ajax/forms_layouts.html">Layouts</a></li>
-									<li><a class="ajax-link"
-										href="ajax/forms_file_uploader.html">File Uploader</a></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Banco<f:param name="content" value="financeiro-banco" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Caixa<f:param name="content" value="financeiro-caixa" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Contas a Pagar<f:param name="content" value="contas-pagar" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Contas a Receber<f:param name="content"
+												value="contas-receber" />
+										</h:commandLink></li>
+
 								</ul></li>
+
 							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-desktop"></i> <span class="hidden-xs">UI
-										Elements</span>
+									<i class="fa fa-refresh"></i> <span class="hidden-xs">Mercado
+										Livre</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/ui_grid.html">Grid</a></li>
-									<li><a class="ajax-link" href="ajax/ui_buttons.html">Buttons</a></li>
-									<li><a class="ajax-link" href="ajax/ui_progressbars.html">Progress
-											Bars</a></li>
-									<li><a class="ajax-link" href="ajax/ui_jquery-ui.html">Jquery
-											UI</a></li>
-									<li><a class="ajax-link" href="ajax/ui_icons.html">Icons</a></li>
-								</ul></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Anúncios Ativos<f:param name="content"
+												value="anuncios-ativos" />
+										</h:commandLink></li>
+
 							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-list"></i> <span class="hidden-xs">Pages</span>
+									<i class="fa fa-plus-square"></i> <span class="hidden-xs">Vendas
+										Abertas</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a href="ajax/page_login_v1.html">Login</a></li>
-									<li><a href="ajax/page_register_v1.html">Register</a></li>
-									<li><a id="locked-screen" class="submenu"
-										href="ajax/page_locked.html">Locked Screen</a></li>
-									<li><a class="ajax-link" href="ajax/page_contacts.html">Contacts</a></li>
-									<li><a class="ajax-link" href="ajax/page_feed.html">Feed</a></li>
-									<li><a class="ajax-link add-full"
-										href="ajax/page_messages.html">Messages</a></li>
-									<li><a class="ajax-link" href="ajax/page_pricing.html">Pricing</a></li>
-									<li><a class="ajax-link" href="ajax/page_product.html">Product</a></li>
-									<li><a class="ajax-link" href="ajax/page_invoice.html">Invoice</a></li>
-									<li><a class="ajax-link" href="ajax/page_search.html">Search
-											Results</a></li>
-									<li><a class="ajax-link" href="ajax/page_404.html">Error
-											404</a></li>
-									<li><a href="ajax/page_500_v1.html">Error 500</a></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Total Vendas Abertas<f:param name="content"
+												value="total-vendas-abertas" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Aguardando Pagamento<f:param name="content"
+												value="aguardando-pagamento" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Aguardando Envio<f:param name="content"
+												value="aguardando-envio" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Aguardando Qualificar<f:param name="content"
+												value="aguardando-qualificar" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Aguardando Qualificação<f:param name="content"
+												value="aguardando-qualificacao" />
+										</h:commandLink></li>
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-map-marker"></i> <span class="hidden-xs">Maps</span>
+								
+								<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Vendas Encerradas<f:param name="content"
+												value="vendas-encerradas" />
+										</h:commandLink></li>
+										
+								<li class="dropdown"><a href="#" class="dropdown-toggle">
+									<i class="fa fa-plus-square"></i> <span class="hidden-xs">Mercado Pago</span>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/maps.html">OpenStreetMap</a></li>
-									<li><a class="ajax-link" href="ajax/map_fullscreen.html">Fullscreen
-											map</a></li>
-									<li><a class="ajax-link" href="ajax/map_leaflet.html">Leaflet</a></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Recebimentos<f:param name="content"
+												value="mp-recebimentos" />
+										</h:commandLink></li>
+									<li><h:commandLink styleClass="ajax-link"
+											actionListener="#{menuController.atualizaConteudo}">
+									 		Pagamentos<f:param name="content"
+												value="mp-pagamentos" />
+										</h:commandLink></li>
+									
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-picture-o"></i> <span class="hidden-xs">Gallery</span>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a class="ajax-link" href="ajax/gallery_simple.html">Simple
-											Gallery</a></li>
-									<li><a class="ajax-link" href="ajax/gallery_flickr.html">Flickr
-											Gallery</a></li>
-								</ul></li>
-							<li><a class="ajax-link" href="ajax/typography.html"> <i
-									class="fa fa-font"></i> <span class="hidden-xs">Typography</span>
-							</a></li>
-							<li><a class="ajax-link" href="ajax/calendar.html"> <i
-									class="fa fa-calendar"></i> <span class="hidden-xs">Calendar</span>
-							</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle">
-									<i class="fa fa-picture-o"></i> <span class="hidden-xs">Multilevel
-										menu</span>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">First level menu</a></li>
-									<li><a href="#">First level menu</a></li>
-									<li class="dropdown"><a href="#" class="dropdown-toggle">
-											<i class="fa fa-plus-square"></i> <span class="hidden-xs">Second
-												level menu group</span>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">Second level menu</a></li>
-											<li><a href="#">Second level menu</a></li>
-											<li class="dropdown"><a href="#" class="dropdown-toggle">
-													<i class="fa fa-plus-square"></i> <span class="hidden-xs">Three
-														level menu group</span>
-											</a>
-												<ul class="dropdown-menu">
-													<li><a href="#">Three level menu</a></li>
-													<li><a href="#">Three level menu</a></li>
-													<li class="dropdown"><a href="#"
-														class="dropdown-toggle"> <i class="fa fa-plus-square"></i>
-															<span class="hidden-xs">Four level menu group</span>
-													</a>
-														<ul class="dropdown-menu">
-															<li><a href="#">Four level menu</a></li>
-															<li><a href="#">Four level menu</a></li>
-															<li class="dropdown"><a href="#"
-																class="dropdown-toggle"> <i
-																	class="fa fa-plus-square"></i> <span class="hidden-xs">Five
-																		level menu group</span>
-															</a>
-																<ul class="dropdown-menu">
-																	<li><a href="#">Five level menu</a></li>
-																	<li><a href="#">Five level menu</a></li>
-																	<li class="dropdown"><a href="#"
-																		class="dropdown-toggle"> <i
-																			class="fa fa-plus-square"></i> <span
-																			class="hidden-xs">Six level menu group</span>
-																	</a>
-																		<ul class="dropdown-menu">
-																			<li><a href="#">Six level menu</a></li>
-																			<li><a href="#">Six level menu</a></li>
-																		</ul></li>
-																</ul></li>
-														</ul></li>
-													<li><a href="#">Three level menu</a></li>
-												</ul></li>
-										</ul></li>
-								</ul></li>
+								
+						</ul>
+						</li>
+
+						
 						</ul>
 					</f:ajax>
 				</h:form>
@@ -235,11 +243,11 @@
 				</div>
 
 				<div id="ajax-content">
-					
-						<ui:insert name="content">
 
-						</ui:insert>
-					
+					<ui:insert name="content">
+
+					</ui:insert>
+
 				</div>
 			</div>
 			<!--End Content-->
