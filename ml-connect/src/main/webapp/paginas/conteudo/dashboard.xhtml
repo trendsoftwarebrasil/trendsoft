@@ -23,52 +23,7 @@
 </div>
 <!--End Breadcrumb-->
 <!--Start Dashboard 1-->
-<div id="dashboard-header" class="row">
-	<h:form id="jsfexample">
-		<p:panelGrid columns="2">
-			<f:facet name="header">Anagram maker</f:facet>
 
-			<h:outputLabel for="Word" value="Word" />
-			<p:inputText id="Word" value="#{bean.word}" label="Word" />
-			<h:outputLabel for="Anagram" value="Anagram" />
-			<h:outputText id="Anagram" value="#{bean.anagram}" />
-			<f:facet name="footer">
-
-				<p:commandButton action="#{bean.generateAnagram}" update="Anagram"
-					value="Generate anagram" icon="ui-icon-check" style="margin:0" />
-			</f:facet>
-		</p:panelGrid>
-	</h:form>
-	<div class="col-xs-12 col-sm-4 col-md-5">
-		<h3>
-			Hello, Dashboard!
-			<h:outputText value="#{menuController.content}" />
-		</h3>
-	</div>
-	<div class="clearfix visible-xs"></div>
-	<div class="col-xs-12 col-sm-8 col-md-7 pull-right">
-		<div class="row">
-			<div class="col-xs-4">
-				<div class="sparkline-dashboard" id="sparkline-1"></div>
-				<div class="sparkline-dashboard-info">
-					<i class="fa fa-usd"></i>756.45M <span class="txt-primary">EBITDA</span>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="sparkline-dashboard" id="sparkline-2"></div>
-				<div class="sparkline-dashboard-info">
-					<i class="fa fa-usd"></i>245.12M <span class="txt-info">OIBDA</span>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="sparkline-dashboard" id="sparkline-3"></div>
-				<div class="sparkline-dashboard-info">
-					<i class="fa fa-usd"></i>107.83M <span>REVENUE</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <!--End Dashboard 1-->
 <!--Start Dashboard 2-->
 <div class="row-fluid">
@@ -85,6 +40,7 @@
 	</div>
 	<div id="dashboard_tabs" class="col-xs-12 col-sm-10">
 		<!--Start Dashboard Tab 1-->
+		
 		<div id="dashboard-overview" class="row"
 			style="visibility: visible; position: relative;">
 			<div id="ow-marketplace" class="col-sm-12 col-md-6">
