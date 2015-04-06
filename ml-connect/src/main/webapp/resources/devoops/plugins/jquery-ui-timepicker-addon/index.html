@@ -25,7 +25,6 @@
 			dl.defs dt{ font-weight: bold; line-height: 20px; margin: 10px 0 0 0; }
 			dl.defs dd{ margin: -20px 0 10px 160px; padding-bottom: 10px; border-bottom: solid 1px #eee;}
 			pre{ font-size: 12px; line-height: 16px; padding: 5px 5px 5px 10px; margin: 10px 0; background-color: #e4f4d4; border-left: solid 5px #9EC45F; overflow: auto; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; }
-
 			.wrapper{ background-color: #ffffff; width: 800px; border: solid 1px #eeeeee; padding: 20px; margin: 0 auto; }
 			#tabs{ margin: 20px -20px; border: none; }
 			#tabs, #ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
@@ -58,10 +57,10 @@
 			<p>Has this Timepicker Addon been helpful to you?</p>
 			<div class="donation">
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="C2QQHR7JQGD28">
-				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				<input type="hidden" name="cmd" value="_s-xclick"/>
+				<input type="hidden" name="hosted_button_id" value="C2QQHR7JQGD28"/>
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
 				</form>
 			</div>
 
@@ -74,7 +73,7 @@
 					<li><a href="#tp-examples" title="Examples">Examples</a></li>
 				</ul>
 <!-- ############################################################################# -->
-<!-- Getting Started
+<!-- Getting Started -->
 <!-- ############################################################################# -->
 <div id="tp-getting-started">
 	<h2>Getting Started</h2>
@@ -135,7 +134,7 @@
 </div>
 
 <!-- ############################################################################# -->
-<!-- Options
+<!-- Options -->
 <!-- ############################################################################# -->
 <div id="tp-options">
 	<h2>Options</h2>
@@ -400,7 +399,7 @@
 </div>
 
 <!-- ############################################################################# -->
-<!-- Formatting
+<!-- Formatting -->
 <!-- ############################################################################# -->
 <div id="tp-formatting">
 
@@ -441,7 +440,7 @@
 </div>
 
 <!-- ############################################################################# -->
-<!-- Localization
+<!-- Localization -->
 <!-- ############################################################################# -->
 <div id="tp-localization">
 
@@ -514,7 +513,7 @@ $.timepicker.setDefaults($.timepicker.regional['ru']);
 </div>
 
 <!-- ############################################################################# -->
-<!-- Examples
+<!-- Examples -->
 <!-- ############################################################################# -->
 <div id="tp-examples">
 	<h2>Examples</h2>
@@ -724,7 +723,7 @@ $('#slider_example_4').datetimepicker({
 		return obj;
 	},
 	options: function(tp_inst, obj, unit, opts, val){
-		if(typeof(opts) == 'string' && val !== undefined)
+		if(typeof(opts) == 'string' &amp;&amp; val !== undefined)
 			return obj.find('.ui-timepicker-input').spinner(opts, val);
 		return obj.find('.ui-timepicker-input').spinner(opts);
 	},
