@@ -23,7 +23,34 @@
 </div>
 <!--End Breadcrumb-->
 <!--Start Dashboard 1-->
-
+<div id="dashboard-header" class="row">
+	<div class="col-xs-12 col-sm-4 col-md-5">
+		<h3>Hello, Dashboard!</h3>
+	</div>
+	<div class="clearfix visible-xs"></div>
+	<div class="col-xs-12 col-sm-8 col-md-7 pull-right">
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="sparkline-dashboard" id="sparkline-1"></div>
+				<div class="sparkline-dashboard-info">
+					<i class="fa fa-usd"></i>756.45M <span class="txt-primary">EBITDA</span>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="sparkline-dashboard" id="sparkline-2"></div>
+				<div class="sparkline-dashboard-info">
+					<i class="fa fa-usd"></i>245.12M <span class="txt-info">OIBDA</span>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="sparkline-dashboard" id="sparkline-3"></div>
+				<div class="sparkline-dashboard-info">
+					<i class="fa fa-usd"></i>107.83M <span>REVENUE</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!--End Dashboard 1-->
 <!--Start Dashboard 2-->
 <div class="row-fluid">
@@ -40,198 +67,111 @@
 	</div>
 	<div id="dashboard_tabs" class="col-xs-12 col-sm-10">
 		<!--Start Dashboard Tab 1-->
-		
+
 		<div id="dashboard-overview" class="row"
 			style="visibility: visible; position: relative;">
-			<div id="ow-marketplace" class="col-sm-12 col-md-6">
-				<div id="ow-setting">
-					<a href="#"><i class="fa fa-folder-open"></i></a> <a href="#"><i
-						class="fa fa-credit-card"></i></a> <a href="#"><i
-						class="fa fa-ticket"></i></a> <a href="#"><i
-						class="fa fa-bookmark-o"></i></a> <a href="#"><i
-						class="fa fa-globe"></i></a>
-				</div>
-				<h4 class="page-header">MARKETPLACE</h4>
-				<table id="ticker-table"
-					class="table m-table table-bordered table-hover table-heading">
-					<thead>
-						<tr>
-							<th>Ticker</th>
-							<th>Price</th>
-							<th>Change</th>
-							<th>Weekly Chart</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="m-ticker"><b>BRDM</b><span>Broadem Inc.</span></td>
-							<td class="m-price">33.27</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 1.45
-								(27&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>ASWLL</b><span>Aswell Corp.</span></td>
-							<td class="m-price">45.13</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 6.32
-								(12&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>MIXL</b><span>Mixal LTD.</span></td>
-							<td class="m-price">71.13</td>
-							<td class="m-change"><i class="fa fa-angle-down"></i> 7.2
-								(12&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>LMPRD</b><span>L.A. Prod.</span></td>
-							<td class="m-price">30.24</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 5.3
-								(18&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>ALK</b><span>Allien K.</span></td>
-							<td class="m-price">51.1</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 7.5
-								(3.5&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>LNISW</b><span>Lenstri Sweet</span></td>
-							<td class="m-price">123.12</td>
-							<td class="m-change"><i class="fa fa-angle-down"></i> 54.3
-								(15.3&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>RNLD</b><span>Ron LEED</span></td>
-							<td class="m-price">64.14</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 12.33
-								(0.3&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>BCN</b><span>BeetCN Corp.</span></td>
-							<td class="m-price">64.14</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 12.33
-								(0.3&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-						<tr>
-							<td class="m-ticker"><b>AWS</b><span>Awesome Inc.</span></td>
-							<td class="m-price">64.14</td>
-							<td class="m-change"><i class="fa fa-angle-up"></i> 12.33
-								(0.3&#37;)</td>
-							<td class="td-graph"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-xs-12 col-md-6">
-				<div id="ow-donut" class="row">
-					<div class="col-xs-4">
-						<div id="morris_donut_1" style="width: 120px; height: 120px;"></div>
-					</div>
-					<div class="col-xs-4">
-						<div id="morris_donut_2" style="width: 120px; height: 120px;"></div>
-					</div>
-					<div class="col-xs-4">
-						<div id="morris_donut_3" style="width: 120px; height: 120px;"></div>
-					</div>
-				</div>
-				<div id="ow-activity" class="row">
-					<div class="col-xs-2 col-sm-1 col-md-2">
-						<div class="v-txt">ACTIVITY</div>
-					</div>
-					<div class="col-xs-7 col-sm-5 col-md-6">
-						<div class="row">
-							<i class="fa fa-code"></i> Release published <span
-								class="label label-default pull-right">01:17:34</span>
-						</div>
-						<div class="row">
-							<i class="fa fa-cloud-upload"></i> Backup created <span
-								class="label label-default pull-right">03:23:34</span>
-						</div>
-						<div class="row">
-							<i class="fa fa-camera"></i> Snapshot created <span
-								class="label label-default pull-right">04:22:11</span>
-						</div>
-						<div class="row">
-							<i class="fa fa fa-money"></i> Invoice pay <span
-								class="label label-default pull-right">05:11:51</span>
-						</div>
-						<div class="row">
-							<i class="fa fa-briefcase"></i> Project edited <span
-								class="label label-default pull-right">04:52:23</span>
-						</div>
-						<div class="row">
-							<i class="fa fa-floppy-o"></i> Project saved <span
-								class="label label-default pull-right">07:11:01</span>
-						</div>
-						<div class="row">
-							<i class="fa fa-bug"></i> Bug fixed <span
-								class="label label-default pull-right">09:10:31</span>
-						</div>
-					</div>
-					<div id="ow-stat" class="col-xs-3 col-sm-4 col-md-4 pull-right">
-						<div class="row">
-							<small><b>Ow Stat.:</b></small>
-						</div>
-						<div class="row">
-							&#37;user <sup>20,43</sup>
-						</div>
-						<div class="row">
-							&#37;nice <sup>1,01</sup>
-						</div>
-						<div class="row">
-							&#37;system <sup>27,34</sup>
-						</div>
-						<div class="row">
-							&#37;iowait <sup>2,02</sup>
-						</div>
-						<div class="row">
-							&#37;steal <sup>1,22</sup>
-						</div>
-						<div class="row">
-							&#37;idle <sup>47,98</sup>
-						</div>
-						<div class="row">
-							tps <sup>296546</sup>
-						</div>
-					</div>
-				</div>
-				<div id="ow-summary" class="row">
-					<div class="col-xs-12">
-						<h4 class="page-header">SUMMARY</h4>
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="row">
-									<div class="col-xs-6">
-										Total commits<b>1245634</b>
-									</div>
-									<div class="col-xs-6">
-										Release count<b>227</b>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										Tests passed<b>5222345</b>
-									</div>
-									<div class="col-xs-6">
-										Tickets solved<b>324322</b>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										Active clients<b>52145</b>
-									</div>
-									<div class="col-xs-6">
-										Support team<b>288</b>
-									</div>
-								</div>
+
+			<div class="row-fluid">
+
+				<div class="col-xs-12">
+					<div class="box">
+						<div class="box-header">
+							<div class="box-name">
+								<i class="fa fa-search"></i> <span>Plot with points</span>
 							</div>
+							<div class="box-icons">
+								<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+								</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+								</a> <a class="close-link"> <i class="fa fa-times"></i>
+								</a>
+							</div>
+							<div class="no-move"></div>
+						</div>
+						<div class="box-content">
+							<div id="xchart-1" style="height: 200px; width: 100%;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-6">
+					<div class="box">
+						<div class="box-header">
+							<div class="box-name">
+								<i class="fa fa-search"></i> <span>Company cost (billions
+									of dollars)</span>
+							</div>
+							<div class="box-icons">
+								<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+								</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+								</a> <a class="close-link"> <i class="fa fa-times"></i>
+								</a>
+							</div>
+							<div class="no-move"></div>
+						</div>
+						<div class="box-content">
+							<div id="xchart-2" style="height: 200px;"></div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="box">
+						<div class="box-header">
+							<div class="box-name">
+								<i class="fa fa-table"></i> <span>Striped rows</span>
+							</div>
+							<div class="box-icons">
+								<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+								</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+								</a> <a class="close-link"> <i class="fa fa-times"></i>
+								</a>
+							</div>
+							<div class="no-move"></div>
+						</div>
+						<div class="box-content">
+
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Name</th>
+										<th>Homepage</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Nginx</td>
+										<td>http://nginx.org</td>
+										<td>webserver</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Apache</td>
+										<td>http://apache.org</td>
+										<td>webserver</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Skype</td>
+										<td>http://www.skype.com</td>
+										<td>Messenger</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>Blender</td>
+										<td>http://www.blender.org</td>
+										<td>3D-modeller</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -702,5 +642,46 @@
 <!--End Dashboard 2 -->
 <div style="height: 40px;"></div>
 
+<script type="text/javascript">
+	// Draw all test xCharts
+	function DrawAllxCharts() {
+		xGraph1();
+		xGraph2();
+	}
+	$(document).ready(function() {
+		// Load required scripts and callback to draw
+		LoadXChartScript(DrawAllxCharts);
+		// Required for correctly resize charts, when boxes expand
+		var graphxChartsResize;
+		$(".box").resize(function(event) {
+			event.preventDefault();
+			clearTimeout(graphxChartsResize);
+			graphxChartsResize = setTimeout(DrawAllxCharts, 500);
+		});
+		WinMove();
+	});
+</script>
 
+<script type="text/javascript">
+	// Array for random data for Sparkline
+	var sparkline_arr_1 = SparklineTestData();
+	var sparkline_arr_2 = SparklineTestData();
+	var sparkline_arr_3 = SparklineTestData();
+	$(document).ready(function() {
+		// Make all JS-activity for dashboard
+		DashboardTabChecker();
+		// Load Knob plugin and run callback for draw Knob charts for dashboard(tab-servers)
+		LoadKnobScripts(DrawKnobDashboard);
+		// Load Sparkline plugin and run callback for draw Sparkline charts for dashboard(top of dashboard + plot in tables)
+		LoadSparkLineScript(DrawSparklineDashboard);
+		// Load Morris plugin and run callback for draw Morris charts for dashboard
+		LoadMorrisScripts(MorrisDashboard);
+		// Load Springy plugin and run callback for draw network map for dashboard
+		LoadSpringyScripts(SpringyNetmap);
+		// Make beauty hover in table
+		$("#ticker-table").beautyHover();
+		// Run script for stock block
+		CreateStockPage();
+	});
+</script>
 </html>
