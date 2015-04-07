@@ -7,8 +7,7 @@
 <!--Start Breadcrumb-->
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
-		<a href="#" class="show-sidebar">
-			<i class="fa fa-bars"></i>
+		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
 			<li><a href="index.html">Home</a></li>
@@ -16,22 +15,38 @@
 			<li><a href="#">Faturas</a></li>
 		</ol>
 		<div id="social" class="pull-right">
-			<a href="#"><i class="fa fa-google-plus"></i></a>
-			<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-youtube"></i></a>
+			<a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i
+				class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i
+				class="fa fa-youtube"></i></a>
 		</div>
 	</div>
 </div>
 <!--End Breadcrumb-->
 
-<div id="dashboard-header" class="row">
-	<div class="col-xs-12 col-sm-4 col-md-5">
-		<h3>Faturas <h:outputText value="#{menuController.content}" /></h3>
+<div class="row">
+	<div class="col-xs-12">
+
+		<p:dataTable styleClass="" var="car" value="#{dtBasicView.cars}">
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
+
+			<p:column headerText="Year">
+				<h:outputText value="#{car.status}" />
+			</p:column>
+
+			<p:column headerText="Brand">
+				<h:outputText value="#{car.date_created}" />
+			</p:column>
+
+			<p:column headerText="Color">
+				<h:outputText value="#{car.total_amount}" />
+			</p:column>
+		</p:dataTable>
+
 	</div>
-	<div class="clearfix visible-xs"></div>
-	
+
 </div>
 
 

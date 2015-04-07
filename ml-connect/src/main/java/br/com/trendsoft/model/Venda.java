@@ -17,6 +17,19 @@ public class Venda {
 	private ArrayList<Pagamento> pagamento;
 	private ArrayList<VendaItens> vendaItens;
 	
+	public Venda () {
+		
+	}
+	
+	public Venda (Long id, String status, String data, double valor) {
+		
+		this.id = id;
+		this.status = status;
+		this.date_created = data;
+		this.total_amount = valor;
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
