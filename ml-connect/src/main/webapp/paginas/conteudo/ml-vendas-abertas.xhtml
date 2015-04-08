@@ -26,8 +26,7 @@
 
 <div class="row">
 	<div class="col-xs-12">
-
-		<p:dataTable styleClass="" var="car" value="#{dtBasicView.cars}">
+		<p:dataTable var="car" value="#{dtBasicView.cars}">
 			<p:column headerText="Id">
 				<h:outputText value="#{car.id}" />
 			</p:column>
@@ -45,10 +44,9 @@
 			</p:column>
 		</p:dataTable>
 
+
 	</div>
 
 </div>
-
-
 
 </html>
