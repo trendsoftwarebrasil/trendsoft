@@ -26,6 +26,7 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
+		<property name="packagesToScan" value="br.com.trendsoft.model" />
 	</bean>
 
 	<!-- Procurar no contexto da aplicações todos os beans anotados com @Transacional, 
